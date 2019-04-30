@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% for object in object_list %}
+  <div class="media">
+    <img class="mr-3" src="..." alt="Generic placeholder image">
+    <div class="media-body">
+      <p>{{ object.content }}<br/>
+        {{ object.user }}<br/>
+        {{ object.timestamp|timesince }} ago<\p><br/><br/>
+    {% endfor %}
+      <h5 class="mt-0">Media heading</h5>
+
+    </div>
+  </div>
+
+
+{% endblock content %}

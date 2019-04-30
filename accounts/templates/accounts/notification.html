@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% load notifications_tags %}
+
+<ul style="list-style:none;">
+{% for notification in object_list %}
+  {% if notification.verb == 'reply' %}
+  <li>{{ notification.timestamp }} <br/><a href="/{{ notification.actor }}/">{{ notification.actor }}</a> replied and said <a href="/tweet/{{ notification.target.id }}/">{{ notification.description }}</a></li>
+    <hr/>
+  {% endif %}
+  {% if notification.verb == 'follow' %}
+  <li>{{ notification.timestamp }} <br/><a href="/{{ notification.actor }}/">{{ notification.actor }}</a> followed you
+    <hr/>
+  {% endif %}
+  {% if notification.verb == 'like' %}
+  <li>{{ notification.timestamp }} <br/><a href="/{{ notification.actor }}/">{{ notification.actor }}</a> liked your mickle <a href="/tweet/{{ notification.target.id }}/">{{ notification.target.content }}</a></li>
+    <hr/>
+  {% endif %}
+  {% if notification.verb == 'retweet' %}
+  <li>{{ notification.timestamp }} <br/><a href="/{{ notification.actor }}/">{{ notification.actor }}</a> remickled your mickle <a href="/tweet/{{ notification.target.id }}/">{{ notification.target.content }}</a></li>
+    <hr/>
+  {% endif %}
+  {% if notification.verb == 'purchase' %}
+  <li>{{ notification.timestamp }} <br/><a href="/{{ notification.actor }}/">{{ notification.actor }}</a> purchased your mickle <a href="/tweet/{{ notification.target.id }}/">{{ notification.target.content }}</a></li>
+    <hr/>
+  {% endif %}
+{% empty %}
+  <li>No notification yet.</li>
+{% endfor %}
+</ul>
+{% endblock content %}

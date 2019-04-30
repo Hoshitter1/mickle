@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register | {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+<div class='row'>
+  <div class='col-sm-6 col-sm-offset-3'>
+    <div class='name'><h1>Register</h1></div>
+      <form class='form {% if form_class %}{{ form_class }}{% endif %}' method="POST" action="{% if action_url %}{{ action_url }}{% endif %}">{% csrf_token %}
+        {{ form|crispy }}
+        <div class="g-recaptcha" data-callback="validateRecaptcha" data-sitekey="6LcxfpQUAAAAAKI124g9VMWXw4uBRmpF_lTzH_dB"></div><br>
+        <input class='btn btn-primary recaptcha' type="submit" value="Register" disabled />
+      </form>
+  </div>
+</div>
+{% endblock content %}

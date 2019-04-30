@@ -1,0 +1,9 @@
+
+
+
+{% load crispy_forms_tags %}
+<form class='form {% if form_class %}{{ form_class_2 }}{% endif %}' method="POST" action="{% if action_url %}{{ action_url_2 }}{% endif %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit">Upload</button>
+</form>

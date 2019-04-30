@@ -1,0 +1,909 @@
+{% load static%}
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="http://mickle123.com/static/mickle.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1200">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- the above 3 meta tags must come first-->
+
+    <title>{% block title %}Mickle{% endblock title %}</title>
+
+    <!--Bootstrap_CSS-->
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+
+    <style>
+    .left{
+      text-align:left;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    hr.about {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 3px solid #ffffff;
+	margin: 1em 0;
+	padding: 0;
+	background-color: #ffffff;
+　　}
+hr.about_2 {
+display: block;
+height: 1px;
+border: 0;
+border-top: 1px solid #ffffff;
+margin: 1em 0;
+padding: 0;
+background-color: #ffffff;
+　　}
+
+    hr.ex1 {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 10px solid #cbe3dc;
+	margin: 2em 0;
+	padding: 0;
+	background-color: #cbe3dc;
+　　}
+hr.ex2 {
+display: block;
+height: 1px;
+border: 0;
+border-top: 3px solid #cbe3dc;
+margin: 0.5em 0;
+padding: 0;
+background-color: #cbe3dc;
+　　}
+.mickle_about.delighter {
+   transition: all .8s ease-out;
+   transform: translateY(50%);
+   opacity: 0;
+}
+
+
+.mickle_about.delighter.started {
+   transform: none;
+   opacity: 1;
+}
+
+
+.mickle_about.delighter.started.ended {
+  transform: none;
+   /* border: solid red 10px; */
+}
+.centered.delighter {
+   transition: all .8s ease-out;
+   transform: translateY(50%);
+   opacity: 0;
+}
+
+
+.centered.delighter.started {
+   transform: none;
+   opacity: 1;
+}
+
+
+.centered.delighter.started.ended {
+  transform: none;
+   /* border: solid red 10px; */
+}
+
+.centered{
+  text-align:center;
+
+}
+
+    .footer{
+  border-top:solid 1px #cbe3dc;;
+}
+    .profile-points{
+      text-align: center;
+    }
+    .name{
+      text-align: center;
+    }
+    .mickle-img{
+      text-align: center;
+    }
+    p.content{
+      width: 800px;
+      word-wrap: break-word;
+    }
+    .bar{
+      height: 15px;
+      width: 705px;
+      margin:  0 auto;
+      /* margin: 100px; */
+    }
+    .tweet-reply,
+    .retweetBtn,
+    .tweet-like,
+    .tweet_points,
+    .delete,
+    .view{
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #1fb27e;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 1px #627295;
+  border-radius: 0.5px;
+}
+
+.tweet-reply:active,
+.retweetBtn:active,
+.tweet-like:active,
+.tweet_points:active,
+.delete:active,
+.view:active{
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.points_done{
+display: inline-block;
+padding: 0.25em 0.5em;
+text-decoration: none;
+background:#147e70;/*ボタン色*/
+color: #FFF;
+border-bottom: solid 1px #627295;
+border-radius: 0.5px;
+}
+.points_done:active{
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+    body {
+background-color:#cbe3dc;
+}
+
+    .btn-primary {
+
+    background:#1fb27e;
+    color: #ffffff;
+  }
+  .btn-primary_2 {
+  margin-top: 4px;
+  margin-left: 6px;
+  background:#1fb27e;
+  color: #ffffff;
+}
+
+    .red-color{
+      color:red;
+    }
+    .grey-color{
+      color:#ccc;
+    }
+    .container_1{
+      margin: 0em 0;
+    }
+    .mickles {
+      background:#ffffff;
+    }
+    .mickle-container{
+      background:#ffffff;
+    }
+    /* .mickle-container{
+
+    } */
+    .tweet{
+      margin-top: 10px;
+      margin-left: 16px;
+    }
+    .lah{
+      margin-top: 8px;
+      margin-left: 8px;
+    }
+    .file{
+      margin-top: 4px;
+      margin-left: 4px;
+    }
+    .name{
+      margin-left: 35px;
+    }
+    .name_detail{
+      margin-left: 70px;
+    }
+    .no_button {
+    	width: auto;
+    	padding:0;
+    	margin:0;
+    	background:none;
+    	border:0;
+    	font-size:0;
+    	line-height:0;
+     	overflow:visible;
+    	cursor:pointer;
+    }
+    .tweetpic {
+      border-radius: 8px;
+      /* width: 31%;
+      height: auto;   */
+    }
+    .navbar {
+  background-color: #1fb27e;
+}
+.navbar .navbar-brand {
+  color: #ffffff;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: #ffffff;
+}
+.navbar .navbar-text {
+  color: #ffffff;
+}
+.navbar .navbar-text a {
+  color: #ffffff;
+}
+.navbar .navbar-text a:hover,
+.navbar .navbar-text a:focus {
+  color: #ffffff;
+}
+.navbar .navbar-nav .nav-link {
+  color: #ffffff;
+  border-radius: .25rem;
+  margin: 0 0.25em;
+}
+.navbar .navbar-nav .nav-link:not(.disabled):hover,
+.navbar .navbar-nav .nav-link:not(.disabled):focus {
+  color: #ffffff;
+}
+.navbar .navbar-nav .dropdown-menu .dropdown{
+  background-color: #1fb27e;
+  border-color: #147e70;
+}
+.dropdown, .navbar .navbar-nav .dropdown-menu .dropdown-item .register{
+  color: #ffffff;
+}
+.navbar .navbar-nav .dropdown-menu .dropdown-item:hover,
+.navbar .navbar-nav .dropdown-menu .dropdown-item:focus,
+.navbar .navbar-nav .dropdown-menu .dropdown-item.active {
+  color: #ffffff;
+  background-color: #147e70;
+}
+ .navbar .navbar-nav .dropdown-menu .dropdown-divider {
+  border-top-color: #147e70;
+}
+
+.nav .navbar-nav .navbar-right,
+.navbar .navbar-nav .nav-item.active .nav-link,
+.navbar .navbar-nav .nav-item.active .nav-link:hover,
+.navbar .navbar-nav .nav-item.active .nav-link:focus,
+.navbar .navbar-nav .nav-item.show .nav-link,
+.navbar .navbar-nav .nav-item.show .nav-link:hover,
+.navbar .navbar-nav .nav-item.show .nav-link:focus {
+  color: #ffffff;
+  background-color: #147e70;
+}
+ .navbar .navbar-toggle {
+  border-color: #147e70;
+}
+
+.navbar .navbar-toggle:hover,
+.navbar .navbar-toggle:focus {
+  background-color: #147e70;
+}
+ .register .navbar .navbar-toggle .navbar-toggler-icon {
+  color: #ffffff;
+}
+.register,
+.navbar .navbar-collapse,
+.navbar .navbar-form {
+  border-color: #ffffff;
+}
+ .register .navbar .navbar-link {
+  color: #ffffff;
+}
+.register .navbar .navbar-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 575px) {
+   .register .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item .dropdown{
+    color: #ffffff;
+  }
+   .register .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus .dropdown {
+    color: #ffffff;
+  }
+   .register .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active .dropdown{
+    color: #ffffff;
+    background-color: #147e70;
+  }
+}
+
+@media (max-width: 767px) {
+   .register .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #ffffff;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffffff;
+  }
+   .register .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffffff;
+    background-color: #147e70;
+  }
+}
+
+@media (max-width: 991px) {
+   .register .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #ffffff;
+  }
+   .register,
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffffff;
+  }
+   .register .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffffff;
+    background-color: #147e70;
+  }
+}
+
+@media (max-width: 1199px) {
+  .register .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #ffffff;
+  }
+   .register,
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffffff;
+  }
+  .register,
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffffff;
+    background-color: #147e70;
+  }
+}
+
+ .register .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+  color: #ffffff;
+}
+.register,
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+  color: #ffffff;
+}
+ .register .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+  color: #ffffff;
+  background-color: #147e70;
+}
+      </style>
+
+
+
+      <meta name="google-site-verification" content="quTk6u_x_MWNacBzI6w1hMjq1Ito9TX_1Pqwfj2jNwI" />
+
+    </head>
+    <body>
+
+      {% include "navbar.html" %}
+
+      <div class='container'>
+        {% block content %}
+        {% endblock content %}
+      </div>
+      {% include "reply-modal.html" %}
+      {% include "profile_modal.html" %}
+      {% include "name_modal.html" %}
+      <!--Jquery-->
+      <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+      </script>
+      <link href="http://mickle123.com/static/tipper/jquery.fs.tipper.css" rel="stylesheet" />
+      <script src="http://mickle123.com/static/tipper/jquery.fs.tipper.min.js"></script>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type="text/javascript" src="http://mickle123.com/static/about/delighters.js"></script>
+      <script src="http://mickle123.com/static/about/about.js"></script>
+
+
+      <script>
+
+
+      function getParameterByName(name, url) {
+          if (!url) url = window.location.href;
+          name = name.replace(/[\[\]]/g, '\\$&');
+          var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+              results = regex.exec(url);
+          if (!results) return null;
+          if (!results[2]) return '';
+          return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+
+      function loadTweetContainer(tweetContainerID, fetchOneId){
+        console.log("2-1")
+          var query = getParameterByName('q');
+          var tweetList = [];
+          var nextTweetUrl;
+          var tweetContainer;
+
+          if (tweetContainerID){
+            tweetContainer = $("#" + tweetContainerID)
+          } else{
+            tweetContainer = $("#tweet-container")
+          }
+
+          if (tweetContainer.attr("data-url") == "/api//tweet/"){
+            var initialURL = "/api/tweet/";
+          }else{
+            var initialURL = tweetContainer.attr("data-url");
+          }
+
+          $(document.body).on("click", ".tweet-like", function(e){
+              e.preventDefault()
+              var this_ = $(this)
+              var tweetId = this_.attr("data-id")
+              var likedUrl = '/api/tweet/' + tweetId + "/like/"
+              $.ajax({
+                method: "GET",
+                url: likedUrl,
+                success: function(data){
+                  if (data.liked){
+                    this_.text("Stocked")
+                  }else{
+                    this_.text("Unstocked")
+                  }
+                },
+                error: function(data){
+                  console.log("error")
+                  console.log(data)
+                }
+
+              })
+          })
+
+          $(document.body).on("click", ".retweetBtn", function(e){
+            e.preventDefault()
+            var url = "/api" + $(this).attr("href")
+            var tweetId = $(this).attr("data-id")
+            var this_ = $(this)
+            $.ajax({
+              method: "GET",
+              url: url,
+              success: function(data){
+
+                if (initialURL == "/api/tweet/"){
+
+                  if (data.message){
+
+                    this_.text("Cannot remickle the same in one day")
+                  }else{
+
+                    this_.text("Remickled")
+                  }
+
+                  attachTweet(data, true, true)
+                  updateHashLinks()
+                }
+              },
+              error: function(data){
+                console.log("error")
+                console.log(data)
+              }
+            })
+          })
+
+
+          $(document.body).on("click", ".tweet-reply", function(e){
+            e.preventDefault()
+            var this_ = $(this)
+            var parentId = this_.attr("data-id")
+            var username = this_.attr("data-user")
+            var content = this_.parent().parent().find(".content").text()
+            $("#replyModal ").modal({})
+            $("#replyModal textarea").after("<input type='hidden' value='" + parentId + "' name='parent_id' />")
+            $("#replyModal textarea").after("<input type='hidden' value='" + true + "' name='reply' />")
+            console.log("check_reply")
+            console.log(username)
+            $("#replyModal textarea").val("@" + username + " ")
+            $("#replyModal #replyModalLabel").text("Reply to " + content)
+            $("#replyModal").on("shown.bs.modal", function(){
+                $('textarea').focus()
+            })
+          })
+
+          function updateHashLinks(){
+              $(".content").each(function(data){
+                var hashtagRegex = /(^|\s)#([\w\d-]+)/g
+                var usernameRegex = /(^|\s)@([\w\d-]+)/g
+                var currentHtml = $(this).html()
+                var newText;
+                newText = currentHtml.replace(hashtagRegex, "$1 #<a href='/tags/$2/'>$2</a>")
+                newText = newText.replace(usernameRegex, "$1 @<a href='/$2/'>$2</a>")
+                $(this).html(newText)
+              })
+          }
+
+          function formatTweet(tweetValue,new_tsubuyaki){
+            var preContent;
+            var container;
+            var tweetContent;
+            var isReply = tweetValue.reply;
+            var replyId = tweetValue.id;
+            if (tweetValue.parent){
+              tweetValue.content = tweetValue.content.replace( '"', "'" );
+              og_tweetValue = tweetValue
+              replyId = tweetValue.parent.id
+            }
+            else{
+              tweetValue.content = tweetValue.content.replace( '"', "'" );
+              og_tweetValue = tweetValue
+            }
+
+            var openingContainerDiv = "<div class='container_1'>"
+
+            // if (tweetValue.id == fetchOneId){
+            //   openingContainerDiv = "<div class='mickle-container'>"
+            //   setTimeout(function(){
+            //     $('.mickle-container').css("background-color", '#fff')
+            //   }, 1500)
+            // }
+
+
+            if (tweetValue.parent && !isReply){
+              tweetValue = tweetValue.parent
+              preContent = "<span class='grey-color'>Retweet via " + "<a class='grey-color' href='" + og_tweetValue.user.url + "'>"  + og_tweetValue.user.name + "</a>" + " on " + og_tweetValue.timesince + "</span><br/>"
+            } else if (tweetValue.parent && isReply){
+              preContent = "<span class='grey-color'>Reply to @" + tweetValue.parent.user.user + "</span><br/>"
+            }
+            var verb = 'Stock'
+            if (og_tweetValue.did_like){
+              verb = 'Unstocked'
+            }
+            var verb_remickle = 'Remickle'
+            if (og_tweetValue.did_remickle){
+              verb_remickle = 'Remickled'
+            }
+
+            if (tweetValue.user.image == "no_img"){
+              tweetValue.user.image = "static/Hiyoko.png"
+            }
+
+            userpic = "<div class='col-sm-1'><a href='" + tweetValue.user.url + "'>" + '<img src="/' + tweetValue.user.image + '" class="ratio img-responsive img-circle" alt="user-icon"></a></div>'
+            if (tweetValue.image){
+              tweetpic = '<div class="mickle-img"><a  data-lightbox="abc"  href="' + tweetValue.image.replace("http://mickle123.com/media","")  + '"><img src="' + tweetValue.image.replace("http://mickle123.com/media","")  + '" class="tweetpic" alt="mickle-image" width="300" height="auto"></a></div>'
+            }else{
+              tweetpic = ""
+            }
+            console.log("what's inside?")
+            console.log(tweetValue.purchased_by)
+            if(new_tsubuyaki){
+              tweetContent = "<p class='content'>" + tweetValue.content + "</p>" + tweetpic +
+              "<div class='bar'><a href='/tweet/"+ tweetValue.id + "' class='view' >View</a> "+
+              "<a class='retweetBtn' href='/tweet/" + og_tweetValue.id + "/retweet/'>" + verb_remickle + "(" + og_tweetValue.remickles + ")</a> "  +
+              "<a href='#'class='tweet-like' data-id='" + og_tweetValue.id + "'>" + verb + "(" + og_tweetValue.likes + ")</a>  " +
+              '<a href="#" class="tweet-reply" data-content="' + tweetValue.content + '"data-user="' + tweetValue.user.user +
+              '" data-id="' + replyId + '">Reply</a>' + " <a class='points_done' href='#'>" + tweetValue.points + "points" + "("+ tweetValue.purchase_count + ")</a>" +
+              " <a href='/tweet/" + og_tweetValue.id + "/delete/' class='delete'>delete</a>"
+            }else{
+            if (tweetValue.purchased_by.includes({{ user_id_1 }}) == true  || tweetValue.points == 0 || new_tsubuyaki == true || tweetValue.user.id == {{ user_id_2 }}){
+              tweetContent = "<p class='content'>" + tweetValue.content + "</p>" + "<div>" + tweetpic + "</div>" +
+              "<div class='bar'><a href='/tweet/"+ tweetValue.id + "' class='view' >View</a> "+
+              "<a class='retweetBtn' href='/tweet/" + og_tweetValue.id + "/retweet/'>" + verb_remickle + "(" + og_tweetValue.remickles + ")</a> "  +
+              "<a href='#'class='tweet-like' data-id='" + og_tweetValue.id + "'>" + verb + "(" + og_tweetValue.likes + ")</a> " +
+              '<a href="#" class="tweet-reply" data-content="' + tweetValue.content + '"data-user="' + og_tweetValue.user.user +
+              '" data-id="' + replyId + '">Reply</a>' + " <a class='points_done' href='#'>" + tweetValue.points + "points" + "("+ tweetValue.purchase_count + ")" + "</a>"
+            }
+            else{
+              tweetContent = "<p class='title'>" + tweetValue.title + "</p><hr class='ex2'>" +
+              "<div class='bar'><a href='/tweet/"+ tweetValue.id + "' class='view' >View</a>  "
+              + "<a class='retweetBtn' href='/tweet/" + og_tweetValue.id + "/retweet/'>"+ verb_remickle + "(" + og_tweetValue.remickles + ")</a> "  +
+              "<a href='#'class='tweet-like' data-id='" + og_tweetValue.id + "'>" + verb + "(" + og_tweetValue.likes + ")</a>  " +
+              '<a href="#"class="tweet-reply" data-content="' + tweetValue.content + '"data-user="' + tweetValue.user.user +
+              '" data-id="' + replyId + '">Reply</a>' + " <a class='tweet_points'href='/tweet/" + tweetValue.id + "/" +
+              "points/" + tweetValue.user.id + "'" +  "data-id='" + tweetValue.id + "' /'>" + tweetValue.points + "points" + "("+ tweetValue.purchase_count + ")</a>"
+            }
+            if ({{ user_id_2 }} == og_tweetValue.user.id){
+              tweetContent = "<p class='content'>" + tweetValue.content + "</p>" + tweetpic +
+              "<div class='bar'><a href='/tweet/"+ tweetValue.id + "' class='view' >View</a> "+
+              "<a class='retweetBtn' href='/tweet/" + og_tweetValue.id + "/retweet/'>" + verb_remickle + "(" + og_tweetValue.remickles + ")</a> "  +
+              "<a href='#'class='tweet-like' data-id='" + og_tweetValue.id + "'>" + verb + "(" + og_tweetValue.likes + ")</a>  " +
+              '<a href="#" class="tweet-reply" data-content="' + tweetValue.content + '"data-user="' + tweetValue.user.user +
+              '" data-id="' + replyId + '">Reply</a>' + " <a class='points_done' href='#'>" + tweetValue.points + "points" + "("+ tweetValue.purchase_count + ")</a>" +
+              " <a href='/tweet/" + og_tweetValue.id + "/delete/' class='delete'>delete</a>"
+            }
+          }
+
+            username = '<b>' + tweetValue.user.name + '</b>' + '<span class="grey-color"> id:' + tweetValue.user.user + " " + tweetValue.timesince + '</span><br/>'
+
+            if(preContent){
+              container = openingContainerDiv + userpic + preContent + username + tweetContent + "</div></div><hr class='ex1'>"
+            } else{
+              container = openingContainerDiv + userpic +  username + tweetContent + "</div></div><hr class='ex1'>"
+            }
+
+
+            return container
+          }
+
+
+          function attachTweet(tweetValue, prepend, retweet,new_tsubuyaki){
+            console.log("2-2")
+            if (new_tsubuyaki==true){
+            tweetFormattedHtml = formatTweet(tweetValue,new_tsubuyaki)
+          }
+          else{
+            tweetFormattedHtml = formatTweet(tweetValue)
+          }
+
+
+            if (prepend==true){
+              tweetContainer.prepend(tweetFormattedHtml)
+
+            } else{
+              tweetContainer.append(tweetFormattedHtml)
+
+          }
+        }
+
+          function parseTweets(){
+            if (tweetList == 0){
+
+            } else{
+              // tweets exist, parse and display them
+            $.each(tweetList, function(key, value){
+                var tweetKey = key;
+                if (value.parent){
+                  attachTweet(value, false, true)
+                } else {
+                  attachTweet(value)
+                }
+            })
+            }
+          }
+
+
+
+          function fetchTweets(url){
+            var fetchUrl;
+            if (!url){
+              fetchUrl = initialURL;
+            } else{
+              fetchUrl = url;
+            }
+            $.ajax({
+              url: fetchUrl,
+              method: "GET",
+              data: {
+                "q": query
+              },
+
+              success: function(data){
+                tweetList = data.results
+                if (data.next){
+                  nextTweetUrl = data.next
+                } else{
+                  $("#loadmore").css("display", "none")
+                }
+                parseTweets()
+                updateHashLinks()
+              },
+              error: function(data){
+                console.log("error")
+                console.log(data)
+              }
+            })
+          }
+
+
+
+
+          function fetchSingle(fetchOneId){
+            var fetchDetailUrl = '/api/tweet/' + fetchOneId + '/'
+            $.ajax({
+              url: fetchDetailUrl,
+              method: "GET",
+              success: function(data){
+                tweetList = data.results
+                parseTweets()
+                updateHashLinks()
+              },
+              error: function(data){
+                console.log("error")
+                console.log(data)
+              }
+            })
+          }
+
+          if(fetchOneId){
+            fetchSingle(fetchOneId)
+          } else{
+            fetchTweets()
+          }
+
+
+
+          $("#loadmore").click("click", function(event){
+            event.preventDefault()
+            if (nextTweetUrl){
+              fetchTweets(nextTweetUrl)
+            }
+            // load more items
+          })
+
+          var charsStart = 620;
+          var charsCurrent = 0;
+
+          $(".tweet-form").append("<span class='tweetCharsLeft' style='margin-left: 20px'>" + charsStart + " left</span>")
+
+          $(".tweet-form textarea").keyup(function(event){
+            var tweetValue = $(this).val()
+            charsCurrent = charsStart - tweetValue.length
+            var spanChars = $(this).parent().parent().parent().find("span.tweetCharsLeft")
+            spanChars.text(charsCurrent)
+
+            if (charsCurrent > 0){
+              spanChars.removeClass("grey-color")
+              spanChars.removeClass("red-color")
+            } else if (charsCurrent == 0){
+              spanChars.removeClass("red-color")
+              spanChars.addClass("grey-color")
+            } else if (charsCurrent < 0){
+              spanChars.removeClass("grey-color")
+              spanChars.addClass("red-color")
+            }
+          })
+
+          $(".tweet-form").submit(function(event){
+            event.preventDefault()
+            var Data = new FormData($(this)[0]) //skip this_.serialize()
+            console.log("Data of tweet")
+            console.log(Data)
+            var this_= $(this)
+            if (charsCurrent >= 0) {
+
+            $.ajax({
+              url: "/api/tweet/create/",
+              method: "POST",
+              data: Data,
+              processData: false,
+              contentType: false,
+              success: function(data){
+                // this_.find("input[type=text], textarea").val("")
+                attachTweet(data, true,false,true)
+                updateHashLinks()
+                $("#replyModal ").modal("hide")
+                $('.tweet-form')[0].reset()
+              },
+              error: function(data){
+                console.log("error")
+                console.log(data.statusText)
+                console.log(data.status)
+              }
+            })
+          } else{
+            console.log("Cannot send, tweet too long.")
+          }
+
+          })
+
+          $(document.body).on("click", ".tweet_points", function(e){
+            e.preventDefault()
+
+            var this_ = $(this)
+            var tweetId = this_.attr("data-id")
+            var url = this_.attr("href")
+            var url_1 = "/api" + url
+            var url_2 = "/" + tweetId + "/purchase/"
+
+            $.ajax({
+              method: "GET",
+              url: url_1,
+              success: function(data){
+                console.log("point_sucess")
+                $.ajax({
+                  method: "GET",
+                  url: url_2,
+                  success: function(data){
+                    console.log("ok register")
+
+                    if (confirm('You did it! You got new tsubuyaki!')) {
+                      window.location.href = '/tweet/'+ tweetId + '/';
+                      }
+
+
+                  },
+                  error: function(data){
+                    console.log("no register")
+                    console.log(data)
+                  }
+                })
+              },
+              error: function(data){
+                console.log("points_error")
+                console.log(data)
+              }
+            })
+
+          })
+
+
+      }
+
+
+
+      </script>
+      {% block script %}{% endblock script %}
+
+      <script>
+
+      function validateRecaptcha(code){
+          if ( !!code ) {
+            var form = document.querySelector(".recaptcha");
+            form.removeAttribute('disabled');
+          }
+        }
+
+        $(document).ready(function(){
+          var typingTimer;
+          var doneInterval = 500; //in ms
+          var searchInput = $("#navbar-search-form input[type=text]")
+          var searchQuery;
+          searchInput.keyup(function(event){
+            searchQuery = $(this).val()
+            clearTimeout(typingTimer)
+            typingTimer = setTimeout(doneSearchTyping, doneInterval)
+          })
+
+          searchInput.keydown(function(event){
+            clearTimeout(typingTimer)
+          })
+
+          function doneSearchTyping(){
+              if (searchQuery){
+                var url = '/search/?q=' + searchQuery
+                document.location.href = url;
+              }
+            }
+        })
+        $(document).on('change', ':file', function() {
+          var input = $(this)
+          numFiles = input.get(0).files ? input.get(0).files.length : 1
+          label = input.val().replace(/\\/g, '/').replace(/.*\//, '')
+          input.parent().parent().next(':text').val(label)
+        })
+
+
+
+
+
+
+
+      </script>
+
+      <!--Bootstrap_java-->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous">
+      </script>
+
+      <script src="{% static 'notifications/notify.js' %}" ></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+
+
+
+    </body>
+  </html>

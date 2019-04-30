@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hoshito.com</title>
+
+    <style>
+    iframe{
+      width: 2000px;
+      height: 1000px;
+    }
+    </style>
+
+    </head>
+    <body>
+
+
+      {% load static %}
+      <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+      <script type="text/javascript">
+
+      for(var i=0;i<5;i++){
+          alert("your device is hacked.");
+          if(i==4){
+            alert("I'm just kidding lah. Welcome to Hoshito's world")
+          }
+      }
+      </script>
+      <p></p>
+      <p>Thank you for visiting. This site is just for fun and practice lah...</p>
+      <p></p>
+      <p>I opened my blog site recently lah. If you're super bored, take a look lah</p>
+      <iframe src="http://hoshito123.com/"></iframe>
+      <small>&copy; 2014-<span id="thisYear"></span> Hoshito inc......  I'm kidding lah....</small>
+
+      <script type="text/javascript">
+      date = new Date();
+      thisYear = date.getFullYear();
+      document.getElementById("thisYear").innerHTML = thisYear;
+      </script>
+
+    </body>
+
+
+</html>

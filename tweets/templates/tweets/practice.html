@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice</title>
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+    <style>
+    .tweet{
+      margin-top: 10px;
+      margin-left: 16px;
+    }
+    .lah{
+      margin-top: 8px;
+      margin-left: 16px;
+    }
+    </style>
+  </head>
+
+  <body>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+  </script>
+
+  <form class='.tweet-form' method="POST" action="/api/tweet/create/">
+    <input type="text" name="text" size="40">
+
+
+      <div class=row>
+        <div class="col-md-5">
+          <div class="container-fluid">
+          <label class="input-group-btn">
+            <span class="btn btn-primary">
+                Choose File<input type="file" style="display:none" accept="image/*">
+            </span>
+          </label>
+            <input type="text" class="form-control" readonly="">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="lah">
+            <label class="control-label" for="inputSuccess2">Lah</label>
+          <input class="form-control" type="number" value="0" id="example-number-input" min="0" max="100">
+        </div>
+      </div>
+      </div>
+  <div class="tweet">
+  <input class='btn btn-primary' type="submit" value="tweet" style="display:table"/>
+</div>
+</form>
+
+  <script>
+  $(document).on('change', ':file', function() {
+    var input = $(this)
+    numFiles = input.get(0).files ? input.get(0).files.length : 1
+    label = input.val().replace(/\\/g, '/').replace(/.*\//, '')
+    input.parent().parent().next(':text').val(label)
+  })
+  </script>
+
+
+  <div class="modal-body">
+    <h5>Popover in a modal</h5>
+    <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+    <hr>
+    <h5>Tooltips in a modal</h5>
+    <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> have tooltips on hover.</p>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous">
+  </script>
+
+  </body>
+</html>

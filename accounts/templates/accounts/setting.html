@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="list-group">
+  <a class="list-group-item" href="/setting/{{ request.user }}/email_update">Update Your Email</a>
+  <a class="list-group-item" href="/setting/{{ request.user }}/password_update">Change Your Password</a>
+  <a class="list-group-item" href="/setting/points/proceed">Purchase points</a>
+  <a class="list-group-item" href="/setting/{{ user_id }}/delete">Close Your Account</a>
+</div>
+{% endblock content %}

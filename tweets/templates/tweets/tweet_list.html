@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load recommended %}
+<style>
+  #tweet-container{
+  }
+</style>
+
+
+{% block script %}
+<script>
+
+$(document).ready(function(){
+  loadTweetContainer("mickles")
+});
+
+$(window).on('load',function(){
+        $('.Tipper-demo').tipper();
+
+    });
+
+</script>
+{% endblock script %}
+
+
+{% block content %}
+
+
+  <div class='row'>
+    <div class='col-sm-3 col-xs-13'>
+      <div class='col-sm-20'>
+        <!-- <img src="/static/tweets/hoshito_icon.jpg" class="ratio img-responsive img-circle" alt="Sample image"> -->
+        <button type="button" class="no_button" data-toggle="modal" data-target="#profile_picture">
+          <img src="/{{ image }}" class="ratio img-responsive img-circle" alt="Sample image">
+        </button>
+        <div class='name'>
+
+          <button type="button" class="no_button" data-toggle="modal" data-target="#profile_name">
+            <h2 class="Tipper-demo01 Tipper-demo" data-title="Wanna change your name? Hit your name!" data-tipper-options='{"direction":"top"}'>{{ name }}</h2>
+          </button>
+          <br/>
+          <span style="font-size: 18px;">id:{{ request.user }}</span>
+        </div>
+
+        <hr/>
+      </div>
+      <div class="profile-points">
+      <h2>Your points</h2>
+      <h3>{{ points }}</h3>
+      <a href="http://mickle123.com/setting/points/proceed/" rel="noopener noreferrer nofollow" target="_blank">
+        <img alt="CoinGate Payment Button" src="https://static.coingate.com/images/buttons/1.png" /></a>
+
+      <!-- <p class='lead'>Recommended Users</p>
+      {% recommended request.user %} -->
+    </div>
+    </div>
+
+    <div class='col-sm-9 col-xs-12'>
+      {% if not request.GET.q %}
+        <div class=''>
+            {% include "tweets/form.html" with form=create_form action_url=create_url btn_title='Mickle' form_class='tweet-form' %}
+
+
+        </div>
+      {% endif %}
+
+        <div id='mickles' class="mickle-container" data-user='{{ user_id_2 }}' data-url='/api/{{ object.username }}/tweet/'>
+        </div>
+
+      <a href='#' id='loadmore'>Load More Mickles</a>
+
+
+
+
+   </div>
+  </div>
+
+{% endblock content %}

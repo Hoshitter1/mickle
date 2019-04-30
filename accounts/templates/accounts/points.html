@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Current Exchange rate</h3>
+<ul style="list-style-type:circle;">
+  <li >1 point = {{ USD_rate }}USD = {{ BTC_rate }}satoshi (1satoshi=0.00000001BTC)</li>
+</ul>
+<h3>Minimum Order</h3>
+<ul style="list-style-type:circle;">
+  <li >Minimum Order = <strong>{{ BTC_min_points }}points</strong></li>
+</ul>
+<br>
+<form method="POST" action="/setting/points/purchase/">{% csrf_token %}
+<div class="form-group">
+  <label>How many points?:</label><br/>
+  <input type="number" name="points" min="{{ BTC_min_points }}" required=True><br>
+  <!-- <select name="currency">
+    <option value="BTC">BTC</option>
+    <option value="BCH">BCH</option>
+    <option value="ETH">ETH</option>
+  </select> -->
+</div>
+
+<button type="submit" class="btn btn-primary" >Proceed to payment</button>
+</form>
+<h4>Note:</h4>
+<h5>It takes some time for your transaction to be confirmed. Do not click "cancel" after the transaction, which may cause to fail adding points.</h5>
+{% endblock content %}

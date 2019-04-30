@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block script %}
+<script>
+$(document).ready(function(){
+  loadTweetContainer("mickles", {{ object.id }})
+});
+</script>
+{% endblock script %}
+
+{% block content %}
+<div class='row'>
+  <div class='col-sm-2 col-xs-13'>
+
+</div>
+  <div class='col-sm-9 col-xs-12'>
+    <div id='mickles'class="mickle-container" data-user='{{ user_id }}' data-url='/api/tweet/{{ tweet_id }}'>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

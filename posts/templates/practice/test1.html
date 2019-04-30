@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #circle{
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background-color: green;
+        margin:10px;
+      }
+      .square{
+        width: 150px;
+        height: 150px;
+        background-color: red;
+        margin: 10px;
+      }
+      iframe{
+        width: 2000px;
+        height: 1000px;
+      }
+      #fadeOut{
+        display: none;
+      }
+      </style>
+    </head>
+    <body>
+      <!--
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+      </script>
+    -->
+
+
+      <div id="circle"></div>
+      <div class="square"></div>
+      <div id="circle"></div>
+      <div class="square"></div>
+      <div id="circle"></div>
+      <div class="square"></div>
+      <!--<iframe src="http://hoshito123.com/"></iframe>-->
+      <p id="fadeOut">This text fade out</p>
+      <button id="fadeOutbutton">Fade out</button>
+
+      {% load static %}
+      <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+      <script type="text/javascript">
+      for(var i=0;i<5;i++){
+          alert("your device is hacked.");
+          if(i==4){
+            alert("I'm just kidding lah. Welcome to Hoshito's world")
+          }
+      }
+
+      $("div").click(function(){
+        /*$("p").html("div was clicked");
+        alert("clicked");
+        $("#circle").css("width","1000px");
+        $("#circle").css("height","1000px");
+        $("#circle").css("background-color","red");
+        $("iframe").attr("src","http://hoshitophotography.com/");
+        */
+        $(this).animate({
+          width:"800px"
+        },
+        20000,
+        function(){
+          $(this).css("background-color","red");
+        });
+      }
+    )
+    $("#fadeOutbutton").click(function(){
+      $("#fadeOut").fadeIn("slow");
+    }
+  )
+    /*
+    $(".square").click(function(){
+      alert("the square was clicked");
+      }
+    )*/
+      </script>
+
+    </body>
+
+
+</html>

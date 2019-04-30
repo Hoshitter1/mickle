@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Webspace</title>
+      <style type="text/css">
+        .circle{
+          width: 200px;
+          height: 200px;
+          border-radius: 400px;
+          float: left;
+          margin: 1px;
+        }
+        #red-circle{
+          background-color: red;
+        }
+        #blue-circle{
+          background-color: blue;
+        }
+        #yellow-circle{
+          background-color: yellow;
+        }
+        </style>
+
+    </head>
+    <body>
+
+      <div id="red-circle" class="circle"></div>
+      <div id="blue-circle" class="circle"></div>
+      <div id="yellow-circle" class="circle"></div>
+
+      <!--
+      <p id="text">Hello world!</p>
+      <button id="myButton">Change Text</button>
+
+      <script type="text/javascript">
+        document.getElementById("myButton").onclick = function(){
+          // alert("Clicked the button");
+          document.getElementById("text").innerHTML = "clicked"
+        }
+      </script>
+
+      <p id="secondParagraph">Javascript is...
+      </p>
+
+      <button id="secondButton">append!</button>
+
+      <p id="thirdParagraph">Let's change the layout</p>
+      <button id="changeStyle">change the layout</button>
+    -->
+
+      <script type="text/javascript">
+
+      document.getElementById("red-circle").onclick = function(){
+        document.getElementById("red-circle").style.display = "none";
+      }
+      document.getElementById("blue-circle").onclick = function(){
+        document.getElementById("blue-circle").style.display = "none";
+      }
+      document.getElementById("yellow-circle").onclick = function(){
+        document.getElementById("yellow-circle").style.display = "none";
+      }
+      </script>
+      <small>&copy; 2014-<span id="thisYear"></span> Hoshito inc......  I'm kidding lah....</small>
+      <!--
+      <script type="text/javascript">
+      date = new Date();
+      thisYear = date.getFullYear();
+      document.getElementById("thisYear").innerHTML = thisYear;
+      </script>
+
+      <p><input type = "text" id="inputForm">input your name here</p>
+      <button id="submitButton">send</button>
+      <p id="newMassage"></p>
+      <script type="text/javascript">
+      /*var x = new Date();
+      alert(x);
+      */
+      document.getElementById("submitButton").onclick = function(){
+        var name = "";
+        name = document.getElementById("inputForm").value;
+        //alert(name);
+        document.getElementById("newMassage").innerHTML = "Mr." + name + " here is the content of aplication"
+      }
+      </script>
+
+
+      <script type="text/javascript">
+      /*var myArray = new Array();
+      myArray[0] = "pizza";
+      myArray[1] = "chocolate";
+      alert(myArray.length);
+      console.log(myArray);
+      */
+      var tweets = ["Good morning","its lunch time","It's about time to finich the work"];
+      alert(tweets[0]);
+      tweets.push = "work is done. Let's go home";
+      tweets.splice(1,0,"Today's lunch is pasta!");
+      console.log(tweets);
+      </script>
+
+
+      <p>input your secret key</p>
+      <p><input type="text" id="magicWord"></p>
+      <p><button id="checkMagicWord">Check the key!</button></p>
+
+      <script type="text/javascript">
+      /*
+      var x = 2;
+      if (x == 1){
+        alert("x equals to 1");
+      }
+      else{
+        alert("x is not 1" + "x is "+ x)
+      }
+      */
+
+      document.getElementById("checkMagicWord").onclick = function(){
+        var magicWordEntered = document.getElementById("magicWord").value;
+        var magicWord = "fuck_yes";
+        if(magicWordEntered == magicWord){
+          alert("That is correct!!!");
+        }
+        else{
+          alert("that is wrong");
+        }
+      }
+      </script>
+      */
+    -->
+      <script type="text/javascript">
+        for(var i=0; i<5; i++){
+          alert("your device is hacked. Please delete all of your phone's data as soon as possible.")
+          if(i==4){
+            alert("Im just kidding lah, welcome to my world")
+          }
+        }
+        </script>
+      </body>
+</html>

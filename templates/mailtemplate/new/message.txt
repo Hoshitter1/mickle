@@ -1,0 +1,2 @@
+Hi {{ user }} Please confirm your email address from the site below.
+{{ protocol}}://{{ domain }}{% url 'profiles:create_complete' uidb64=uid %}
